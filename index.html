@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            padding: 30px;
+            background-color: #fff0fe;
+            border: 5px solid #ff69b4;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+        }
+        input, button {
+            padding: 8px;
+            font-size: 16px;
+        }
+        #sapaan {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .corner-decoration {
+            position: fixed;
+            font-size: 2em;
+            z-index: 10;
+        }
+        .corner-top-left {
+            top: 10px;
+            left: 10px;
+        }
+        .corner-top-right {
+            top: 10px;
+            right: 10px;
+        }
+        .corner-bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+        .corner-bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                margin: 10px;
+                padding: 20px;
+                border-radius: 10px;
+            }
+            input {
+                padding: 12px;
+                font-size: 18px;
+                width: 100%;
+                max-width: 300px;
+            }
+            button {
+                padding: 12px;
+                font-size: 18px;
+                width: auto;
+                min-width: 100px;
+            }
+            #sapaan {
+                font-size: 18px;
+                margin-top: 15px;
+            }
+            .corner-decoration {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                margin: 5px;
+                padding: 15px;
+            }
+            input {
+                padding: 15px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 250px;
+            }
+            button {
+                padding: 15px;
+                font-size: 16px;
+                width: auto;
+                min-width: 80px;
+            }
+            #sapaan {
+                font-size: 16px;
+            }
+            .corner-decoration {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="corner-decoration corner-top-left">🎈</div>
+    <div class="corner-decoration corner-top-right">🎂</div>
+    <div class="corner-decoration corner-bottom-left">🎉</div>
+    <div class="corner-decoration corner-bottom-right">🎊</div>
+    <p>Masukkan nama kamu:</p>
+    <input type="text" id="nama" placeholder="Nama Lengkap">
+    <button onclick="sapa()">Benar</button>
+    <hr>
+    <div id="sapaan"></div>
+    <div id="doa"></div>
+
+    <script>
+        function sapa() {
+            const nama = document.getElementById("nama").value.trim();
+            const sapaanDiv = document.getElementById("sapaan");
+            const doaDiv = document.getElementById("doa");
+
+            if (nama === "") {
+                sapaanDiv.textContent = "Silakan masukkan nama terlebih dahulu.";
+                sapaanDiv.style.color = "red";
+                doaDiv.textContent = "";
+            } else {
+                sapaanDiv.textContent = `🎉 Selamat Ulang Tahun, ${nama}! Semoga panjang umur dan bahagia selalu. 🎂`;
+                sapaanDiv.style.color = "#2c3e50";
+                doaDiv.innerHTML = `<p>Doa terbaik untukmu:</p>
+                <p>"Semoga Allah SWT senantiasa memberikan kesehatan, kebahagiaan, dan kesuksesan dalam hidupmu. Aamiin."</p>
+                    <p>Jangan lupa senyum hari ini oke 😉</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
